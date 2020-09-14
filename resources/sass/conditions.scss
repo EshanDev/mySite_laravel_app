@@ -1,0 +1,16 @@
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    background-color: #eeeeee;
+    font-family: 'Prompt', sans-serif;
+}
+
+@import './components/auth/auth';
+@import './components/auth/register';
+@import './partials/wrapper';

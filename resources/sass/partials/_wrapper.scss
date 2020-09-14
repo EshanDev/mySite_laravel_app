@@ -1,0 +1,18 @@
+@import '../mixins/breakpoint';
+.wrapper{
+    .container-fluid{
+        @include breakpoint(1411px, max)
+        {
+            @include breakpoint(320px, min)
+            {
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+
+        @include breakpoint(1411px, min){
+            width: 1411px;
+        }
+    }
+
+}
