@@ -1,18 +1,57 @@
 @import '../mixins/breakpoint';
-.wrapper{
-    .container-fluid{
-        @include breakpoint(1411px, max)
-        {
-            @include breakpoint(320px, min)
-            {
+
+.wrapper {
+    .container-fluid {
+        @include breakpoint(1411px, max) {
+            @include breakpoint(320px, min) {
                 width: 100%;
                 margin: 0 auto;
             }
         }
 
-        @include breakpoint(1411px, min){
+        @include breakpoint(1411px, min) {
             width: 1411px;
         }
     }
 
+}
+
+.condition-wrapper {
+    &.wrapper {
+        display: grid;
+        grid-template-areas:
+            "header header header"
+            "main main main";
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto 1fr;
+        grid-gap: 10px;
+        height: 100vh;
+        margin: 0;
+
+        header{
+            grid-area: header;
+        }
+        main{
+            grid-area: main;
+            display: grid;
+            grid-template-areas: "content content content" "footer footer footer";
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr auto;
+
+            .main-container{
+                grid-area: content;
+                padding-top: 45px;
+            }
+            .footer-container{
+                grid-area: footer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 35px;
+                font-size: 14px;
+                color: rgba(0,0,0,.7);
+                font-weight: 300;
+            }
+        }
+    }
 }

@@ -42,13 +42,15 @@
                         </ul>
                     </div>
                 </div>
-                
+
             </nav>
         </header>
 
-        <main class="main-container py-5">
+        <main class="main-container">
 
-            @yield('main-content')
+            <div class="main-container">
+                @yield('main-content')
+            </div>
             <footer class="footer-container">
                 <div class="footer-content">&copy; {{ date('Y') }} {{ config('app.name') }} All right reserved</div>
             </footer>

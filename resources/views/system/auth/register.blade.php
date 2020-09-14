@@ -5,10 +5,12 @@
 
 @section('main-content')
     <div id="register_wrapper">
-        <div class="container-fluid mt-2">
+        <div class="container-fluid">
             <div class="register-container">
-                <div class="col-md-8 bg-light shadow-sm mx-auto">
-                    col-md-8
+                <div class="col-md-8 mx-auto register-container grid-container">
+                    <div class="grid-item my-auto">
+                        grid item
+                    </div>
                 </div>
             </div>
         </div>
