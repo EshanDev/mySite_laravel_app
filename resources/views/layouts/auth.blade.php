@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,36 +10,46 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @yield('stylesheet')
 </head>
+
 <body>
 
     <div id="app" class="condition-wrapper wrapper">
         <header class="header-container">
             <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm">
                 <div class="container-fluid">
-                    <div class="navbar-header"><a href="{{ route('auth.index') }}" class="navbar-brand">{{ __('ระบบสมัครสมาชิก') }}</a></div>
+                    <div class="navbar-header"><a href="{{ route('auth.index') }}"
+                            class="navbar-brand">{{ __('ระบบสมัครสมาชิก') }}</a></div>
                     <div class="navbar-link">
                         <ul class="navbar-nav ml-auto hidden-sm ">
                             @if (Route::current()->getName() == 'auth.index')
-                                <li class="nav-item"><a href="{{ route('auth.register') }}" class="nav-link">{{ __('Register') }}</a></li>
-                                <li class="nav-item"><a href="{{ route('auth.login') }}" class="nav-link">{{ __('Login') }}</a></li>
-                                @elseif(Route::current()->getName() == 'auth.register')
-                                <li class="nav-item"><a href="{{ route('auth.login') }}" class="nav-link">{{ __('Login') }}</a></li>
-                                @elseif(Route::current()->getName() == 'auth.login')
-                                <li class="nav-item"><a href="{{ route('auth.register') }}" class="nav-link">{{ __('Register') }}</a></li>
+                            <li class="nav-item"><a href="{{ route('auth.register') }}"
+                                    class="nav-link">{{ __('สมัครสมาชิก') }}</a></li>
+                            <li class="nav-item"><a href="{{ route('auth.login') }}"
+                                    class="nav-link">{{ __('เข้าใช้งาน') }}</a></li>
+                            @elseif(Route::current()->getName() == 'auth.register')
+                            <li class="nav-item"><a href="{{ route('auth.login') }}"
+                                    class="nav-link">{{ __('เข้าใช้งาน') }}</a></li>
+                            @elseif(Route::current()->getName() == 'auth.login')
+                            <li class="nav-item"><a href="{{ route('auth.register') }}"
+                                    class="nav-link">{{ __('สมัครสมาชิก') }}</a></li>
                             @endif
                         </ul>
                         <ul class="navbar-nav ml-auto only-sm sidebar isClose">
                             @if (Route::current()->getName() == 'auth.index')
-                                <li class="nav-item"><a href="{{ route('auth.register') }}" class="nav-link text-danger">{{ __('Register') }}</a></li>
-                                <li class="nav-item"><a href="{{ route('auth.login') }}" class="nav-link text-danger">{{ __('Login') }}</a></li>
-                                @elseif(Route::current()->getName() == 'auth.register')
-                                <li class="nav-item"><a href="{{ route('auth.login') }}" class="nav-link text-danger">{{ __('Login') }}</a></li>
-                                @elseif(Route::current()->getName() == 'auth.login')
-                                <li class="nav-item"><a href="{{ route('auth.register') }}" class="nav-link text-danger">{{ __('Register') }}</a></li>
+                            <li class="nav-item"><a href="{{ route('auth.register') }}"
+                                    class="nav-link text-danger">{{ __('สมัครสมาชิก') }}</a></li>
+                            <li class="nav-item"><a href="{{ route('auth.login') }}"
+                                    class="nav-link text-danger">{{ __('เข้าใช้งาน') }}</a></li>
+                            @elseif(Route::current()->getName() == 'auth.register')
+                            <li class="nav-item"><a href="{{ route('auth.login') }}"
+                                    class="nav-link text-danger">{{ __('เข้าใช้งาน') }}</a></li>
+                            @elseif(Route::current()->getName() == 'auth.login')
+                            <li class="nav-item"><a href="{{ route('auth.register') }}"
+                                    class="nav-link text-danger">{{ __('สมัครสมาชิก') }}</a></li>
                             @endif
                         </ul>
                         <ul id="ToggleSidebar" class="navbar-nav only-sm">
-                            <button class="btn btn-outline-secondary nav-item nav-link">Open</button>
+                            <div id="ToggleBTN" class="btn btn-outline-secondary nav-item nav-link">Open</div>
                         </ul>
                     </div>
                 </div>
@@ -60,8 +71,7 @@
     @yield('script')
 
     <script type="text/javascript">
-
-        $('button').click(function(e){
+        $('#ToggleBTN').click(function(e){
             $('.sidebar').toggleClass('isClose');
             e.stopPropagation();
         });
@@ -76,6 +86,14 @@
         $(window).resize(function(){
             $('.sidebar').addClass('isClose');
         })
+
+        $("form").keypress(function(e) {
+        //Enter key
+        if (e.which == 13) {
+            return false;
+        }
+        });
+
 
         // $(document).ready(function(){
         //     $("button").click(function(){
@@ -95,4 +113,5 @@
         // });
     </script>
 </body>
+
 </html>

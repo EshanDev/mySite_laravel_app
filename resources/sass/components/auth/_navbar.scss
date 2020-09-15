@@ -1,10 +1,25 @@
 @import '../../mixins/breakpoint';
+@import '../../valiables/colors';
 .navbar{
+    .navbar-brand{
+        @include txt-color($green-light, 1);
+        &:hover{
+            @include txt-color($green, 1);
+        }
+        font-size: 25px;
+        margin: 0;
+        padding: 0;
+    }
     .navbar-nav{
         display: flex;
         flex-direction: row;
         .nav-link{
+            font-size: 18px;
             padding: 0 .5rem;
+            @include txt-color($green-light, 1);
+        &:hover{
+            @include txt-color($green, 1);
+        }
         }
     }
 

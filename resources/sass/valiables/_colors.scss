@@ -1,0 +1,8 @@
+/* Condition Colors Styles */ 
+
+$green: #0B5345;
+$green-light: #186A3B;
+@mixin txt-color($colors, $opacity: 1) {
+    color: $colors;
+    color: rgba($colors, $opacity);
+}
