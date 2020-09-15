@@ -2,6 +2,8 @@
 
 $green: #0B5345;
 $green-light: #186A3B;
+$darkorenge: #D35400;
+$orenge-2: #ff3e04;
 @mixin txt-color($colors, $opacity: 1) {
     color: $colors;
     color: rgba($colors, $opacity);

@@ -49,7 +49,11 @@
                             @endif
                         </ul>
                         <ul id="ToggleSidebar" class="navbar-nav only-sm">
-                            <div id="ToggleBTN" class="btn btn-outline-secondary nav-item nav-link">Open</div>
+                            <div id="ToggleBTN" class="nav-item nav-link">
+                                <div class="bar1"></div>
+                                <div class="bar2"></div>
+                                <div class="bar3"></div>
+                            </div>
                         </ul>
                     </div>
                 </div>
@@ -73,6 +77,7 @@
     <script type="text/javascript">
         $('#ToggleBTN').click(function(e){
             $('.sidebar').toggleClass('isClose');
+            $('#ToggleBTN').toggleClass('change');
             e.stopPropagation();
         });
 
@@ -81,10 +86,12 @@
         });
         $(document).click(function(){
             $('.sidebar').addClass('isClose');
+            $('#ToggleBTN').removeClass('change');
         })
 
         $(window).resize(function(){
             $('.sidebar').addClass('isClose');
+            $('#ToggleBTN').removeClass('change');
         })
 
         $("form").keypress(function(e) {

@@ -66,7 +66,7 @@
                                         <span id="validateSTC"></span>
                                     </div>
                                     <div class="form-group text-center">
-                                        <button type="submit" class="btn btn-secondary btn-lg btn-block">ส่งรหัสยืนยันสิทธิ์</button>
+                                        <button type="submit" class="btn btn-primary btn-lg">ส่งรหัสยืนยันสิทธิ์</button>
                                     </div>
                                 </form>
                                 </fieldset>
