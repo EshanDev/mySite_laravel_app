@@ -12,4 +12,13 @@ class ControlpanelController extends Controller
     {
         return view('system.index');
     }
+
+    public function SendCode(Request $request){
+        $data = array(
+            'email' => $request->email,
+            'student_code' => $request->student_code,
+        );
+
+        return response()->json($data);
+    }
 }

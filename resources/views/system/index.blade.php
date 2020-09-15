@@ -54,11 +54,11 @@
                                 <fieldset class="border rounded custom">
 							<legend class="w-auto" style="font-size: 16px; margin-left: 10px">กรอกข้อมูลนักศึกษา
 							</legend>
-                                <form action="#" id="formAgreement" autocomplete="off">
+                                <form action="{{ route('auth.sendcode') }}" method="POST" id="formAgreement" autocomplete="off">
                                     @csrf
                                     <div class="form-group">
                                         <label for="email">ที่อยู่อีเมล์</label>
-                                        <input type="email" name="email" class="form-control">
+                                        <input type="email" id="email" name="email" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="email">รหัสประจำตัวนักศึกษา</label>
@@ -99,6 +99,7 @@
                 required: true,
                 number: true,
                 studentcode: true,
+                maxlength: 10,
 
             },
             email: {
@@ -109,7 +110,8 @@
         messages: {
             student_code: {
                 required: 'โปรดระบุรหัสนักศึกษา',
-                number: 'รูปแบบรหัสนักศึกษาไม่ถูกต้อง'
+                number: 'รูปแบบรหัสนักศึกษาไม่ถูกต้อง',
+                maxlength: 'รูปแบบรหัสนักศึกษาไม่ถูกต้อง'
             },
             email: {
                 required: 'โปรดระบุที่อยู่อีเมล์',
