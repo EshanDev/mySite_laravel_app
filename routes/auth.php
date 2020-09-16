@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'ControlpanelController@index')->name('auth.index');
 Route::post('/', 'ControlpanelController@SendCode')->name('auth.sendcode');
+Route::post('/emailverifies', 'ControlpanelController@verify_email')->name('condition.verify.email');
+Route::post('/stdcodeverifies', 'ControlpanelController@verify_stdcode')->name('condition.verify.stdcode');
 
 Route::get('/register', function(){
     return view('system.auth.register');

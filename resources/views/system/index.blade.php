@@ -89,10 +89,11 @@
         // Student Code verification
         jQuery.validator.addMethod('studentcode', function(student_code, element){
             student_code = student_code.replace(/\s+/g, "");
-            return this.optional(element) || student_code.length > 9 && student_code.match(/[1-9]{1}[0-9]{9}/);
-        }, "รหัสนักศึกษาไม่ถูกต้อง");
+            return this.optional(element) || student_code.length > 9 && student_code.match(/[1-9]{1}[0-9]{1}[0-9]{2}[0-3]{1}[0-9]{5}/);
+        }, "รูปแบบรหัสนักศึกษาไม่ถูกต้อง");
 
     });
+    var base_url = "{{ URL::to('/auth') }}";
     jQuery('#formAgreement').validate({
         rules: {
             student_code: {
@@ -101,23 +102,53 @@
                 studentcode: true,
                 maxlength: 10,
 
+                remote: {
+                    url: "{{ route('condition.verify.stdcode') }}",
+                    type: "post",
+
+                    data: {
+                        _token: function(){
+                            return "{{ csrf_token() }}"
+                        }
+                    }
+                }
+
             },
             email: {
                 required: true,
                 email: true,
-            }
+
+                remote: {
+                    url: "{{ route('condition.verify.email') }}",
+                    type: "post",
+
+                    data: {
+                        _token: function(){
+                            return "{{ csrf_token() }}"
+                        }
+                    }
+                }
+            },
+
+
         },
         messages: {
             student_code: {
                 required: 'โปรดระบุรหัสนักศึกษา',
                 number: 'รูปแบบรหัสนักศึกษาไม่ถูกต้อง',
-                maxlength: 'รูปแบบรหัสนักศึกษาไม่ถูกต้อง'
+                maxlength: 'รูปแบบรหัสนักศึกษาไม่ถูกต้อง',
+                remote: 'รหัสนักศึกษานี้ได้ลงทะเบียนไว้แล้ว'
             },
             email: {
                 required: 'โปรดระบุที่อยู่อีเมล์',
                 email: 'รูปแบบอีเมล์ไม่ถูกต้อง',
+                remote: "อีเมล์นี้ได้ลงทะเบียนไว้แล้ว"
             }
         },
+        // success: function(label){
+        //     var name = label.attr('for');
+        //     label.text(name+ 'is OK');
+        // },
 
     });
 </script>
