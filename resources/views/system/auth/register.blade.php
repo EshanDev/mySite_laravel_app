@@ -9,7 +9,12 @@
             <div class="register-container">
                 <div class="col-md-8 mx-auto register-container grid-container">
                     <div class="grid-item my-auto">
-                        grid item
+                        @if (Session::has('success'))
+                            {{ Session::get('success') }}
+                            @else
+                            กรุณากรอกรหัสยืนยันสิทธิ์
+                        @endif
+
                     </div>
                 </div>
             </div>

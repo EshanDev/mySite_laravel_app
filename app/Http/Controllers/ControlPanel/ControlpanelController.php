@@ -37,7 +37,7 @@ class ControlpanelController extends Controller
             $conditions->student_code = $data['student_code'];
             $conditions->code = $code;
             $conditions->save();
-            return response()->json($data);
+            return redirect()->route('auth.register')->with('success', 'รหัสยืนยันถูกส่งไปยังอีเมล์ของท่านเรียบร้อยแล้ว');
 
         } else {
             dd($request->_token);

@@ -89,8 +89,8 @@
         // Student Code verification
         jQuery.validator.addMethod('studentcode', function(student_code, element){
             student_code = student_code.replace(/\s+/g, "");
-            return this.optional(element) || student_code.length > 9 && student_code.match(/[1-9]{1}[0-9]{1}[0-9]{2}[0-3]{1}[0-9]{5}/);
-        }, "รูปแบบรหัสนักศึกษาไม่ถูกต้อง");
+            return this.optional(element) || student_code.length > 9 && student_code.match(/[1-9]{1}[0-9]{9}/);
+        }, "รหัสนักศึกษาไม่ถูกต้อง");
 
     });
     var base_url = "{{ URL::to('/auth') }}";
