@@ -537,9 +537,9 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\mySite_laravel_app\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\laragon\www\mySite_laravel_app\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\laragon\www\mySite_laravel_app\resources\sass\conditions.scss */"./resources/sass/conditions.scss");
+__webpack_require__(/*! C:\Users\14Studio\Desktop\main_app\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Users\14Studio\Desktop\main_app\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\Users\14Studio\Desktop\main_app\resources\sass\conditions.scss */"./resources/sass/conditions.scss");
 
 
 /***/ })

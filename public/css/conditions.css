@@ -318,6 +318,21 @@ input[type=color]:focus,
   outline: 0 none;
 }
 
+::-moz-placeholder {
+  color: #646464 !important;
+  opacity: 0.4 !important;
+}
+
+:-ms-input-placeholder {
+  color: #646464 !important;
+  opacity: 0.4 !important;
+}
+
+::placeholder {
+  color: #646464 !important;
+  opacity: 0.4 !important;
+}
+
 @media (max-width: 1411px) and (min-width: 320px) {
   .wrapper .container-fluid {
     width: 100%;
