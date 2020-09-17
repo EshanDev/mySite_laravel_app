@@ -1,10 +1,9 @@
 /*  Auth StyleSheet */
-@import 'navbar';
-@import '../../mixins/breakpoint';
-@import '../../valiables/colors';
+@import "navbar";
+@import "../../mixins/breakpoint";
+@import "../../valiables/colors";
 
 .conditions-container {
-
     .col-md-11 {
         padding: 0;
     }
@@ -72,8 +71,6 @@
             color: rgb(84, 84, 84);
             text-indent: 30px;
         }
-
-
     }
 
     .condition-form {
@@ -99,26 +96,24 @@
                     font-size: 18px;
                     font-weight: 300;
                     padding: 0;
-                    margin-top: 25px;
+                    margin-top: 5px;
                     margin-bottom: 20px;
-                    &:nth-of-type(3){
+                    &:nth-of-type(3) {
                         margin: 0;
                     }
                     label {
-
                         padding: 0;
                         margin: 0;
                     }
-                    input{
+                    input {
                         border-color: rgba(121, 121, 121, 0.187);
-                        &:focus{
+                        &:focus {
                             border-color: rgba(140, 140, 140, 0.365);
                         }
                     }
-                    button{
+                    button {
                         margin-top: 25px;
                         width: 100%;
-
                     }
                 }
 
@@ -146,7 +141,7 @@
                     }
                 }
 
-                label.error{
+                label.error {
                     position: absolute;
                     font-size: 15px;
                     font-weight: 400;
@@ -156,9 +151,9 @@
             }
         }
 
-        @include breakpoint(999px, min){
+        @include breakpoint(999px, min) {
             width: 700px;
-            button{
+            button {
                 margin-top: 0px !important;
                 max-width: 350px;
             }
@@ -199,7 +194,7 @@
         }
     }
 
-    @include breakpoint(1200px, min) {
+    @include breakpoint(1400px, min) {
         .text-header {
             margin-top: 50px;
             margin-bottom: 50px;
@@ -223,8 +218,8 @@
             }
         }
     }
-    @include breakpoint(2000px, min){
-        .text-header{
+    @include breakpoint(2000px, min) {
+        .text-header {
             margin-top: 100px;
         }
     }

@@ -1,4 +1,4 @@
-@import '../mixins/breakpoint';
+@import "../mixins/breakpoint";
 
 /*  Outline None */
 textarea:focus,
@@ -24,23 +24,28 @@ input[type="color"]:focus,
 
 ::placeholder {
     color: #646464 !important;
-    opacity: .4 !important;
+    opacity: 0.4 !important;
 }
 
 .wrapper {
     .container-fluid {
-        @include breakpoint(1411px, max) {
+        @include breakpoint(1024px, max) {
             @include breakpoint(320px, min) {
                 width: 100%;
                 margin: 0 auto;
             }
         }
 
-        @include breakpoint(1411px, min) {
-            width: 1411px;
+        @include breakpoint(1500px, max) {
+            @include breakpoint(1200px, min) {
+                max-width: 1080px;
+            }
+        }
+
+        @include breakpoint(1500px, min) {
+            max-width: 1411px;
         }
     }
-
 }
 
 .condition-wrapper {
@@ -62,7 +67,7 @@ input[type="color"]:focus,
         main {
             grid-area: main;
             display: grid;
-            grid-template-areas: "content content content""footer footer footer";
+            grid-template-areas: "content content content" "footer footer footer";
             grid-template-columns: 1fr;
             grid-template-rows: 1fr auto;
 
@@ -79,7 +84,7 @@ input[type="color"]:focus,
                 margin-top: 50px;
                 min-height: 35px;
                 font-size: 14px;
-                color: rgba(0, 0, 0, .7);
+                color: rgba(0, 0, 0, 0.7);
                 font-weight: 300;
             }
         }

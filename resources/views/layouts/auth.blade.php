@@ -17,7 +17,7 @@
 
     <div id="app" class="condition-wrapper wrapper">
         <header class="header-container">
-            <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm">
+            <nav id="conditions_navbar" class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm">
                 <div class="container-fluid">
                     <div class="navbar-header"><a href="{{ route('auth.index') }}"
                             class="navbar-brand">{{ __('ระบบสมัครสมาชิก') }}</a></div>
