@@ -23,7 +23,9 @@
         font-size: 19px;
         font-weight: 500;
         @include txt-color(#ffffff, 0.9);
-        &:hover {
+        &:hover,
+        &:focus,
+        &:active {
             @include txt-color(#ffffff, 1);
         }
 
@@ -38,7 +40,9 @@
             font-weight: 300;
             padding: 0 0.5rem;
             @include txt-color(#ffffff, 0.9);
-            &:hover {
+            &:hover,
+            &:focus,
+            &:active {
                 @include txt-color(#ffffff, 1);
             }
         }
