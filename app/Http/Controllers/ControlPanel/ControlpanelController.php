@@ -7,19 +7,17 @@ use App\Models\Conditions;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Laravel\Ui\Presets\React;
+use App\Mail\ActivationRegister;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Mail\ActivationRegister;
 use Illuminate\Support\Facades\Mail;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
 class ControlpanelController extends Controller
 {
     public function index()
-
     {
-
-
         $conditions = DB::table('conditions')->count();
         if ($conditions > 30) {
             return redirect()->route('auth.login');
@@ -30,31 +28,34 @@ class ControlpanelController extends Controller
 
     public function SendCode(Request $request)
     {
-
-
-        $stdcode =  Str::uuid($request->input('student_code'));
-        $result = $stdcode;
+        $student_email = $request->input('email');
+        $student_code = $request->input('student_code');
+        $code = Str::uuid($student_code);
+        $result = $code;
 
 
         $data = array(
-            'email' => $request->email,
-            'student_code' => $request->student_code,
+            'email' => $student_email,
+            'student_code' => $student_code,
             'code' => $result
         );
 
 
         if (!empty($request->except('_token'))) {
 
-            $conditions = new Conditions();
-            $conditions->email = $data['email'];
-            $conditions->student_code = $data['student_code'];
-            $conditions->code = $result;
+            // Create new session.
+            $store = new Conditions();
+
+            // Create variable name.
+            $store->email = $data['email'];
+            $store->student_code = $data['student_code'];
+            $store->code = $result;
 
             // Store into database conditions table.
             //$conditions->save();
 
             // Send eMail to user by Email Address.
-            Mail::to($data['email'])->send(new ActivationRegister($data));
+            //Mail::to($data['email'])->send(new ActivationRegister($data));
 
             // Redirect to Register Authentication page.
             return redirect()->route('auth.register')->with('success', 'รหัสยืนยันถูกส่งไปยังอีเมล์ของท่านเรียบร้อยแล้ว');

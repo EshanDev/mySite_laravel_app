@@ -10,7 +10,9 @@
                 <div class="col-md-8 mx-auto register-container grid-container">
                     <div class="grid-item my-auto">
                         @if (Session::has('success'))
-                            {{ Session::get('success') }}
+                            <div class="alert alert-success">
+                                {{ Session('success') }}
+                            </div>
                             @else
                             กรุณากรอกรหัสยืนยันสิทธิ์
                         @endif
