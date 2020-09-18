@@ -23,7 +23,7 @@ html, body {
 }
 
 .navbar .navbar-brand {
-  font-size: 19px;
+  font-size: 25px;
   font-weight: 500;
   color: #ffffff;
   color: rgba(255, 255, 255, 0.9);
@@ -39,7 +39,7 @@ html, body {
   flex-direction: row;
 }
 .navbar .navbar-nav .nav-link {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 300;
   padding: 0 0.5rem;
   color: #ffffff;
@@ -314,7 +314,47 @@ html, body {
   left: 0;
   right: 0;
   top: 0;
-  background-color: green;
+  /* register container and grid container */
+}
+#register_wrapper .register-container .grid-container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas: "header" "content";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+  margin: 0;
+  /* grid item */
+}
+#register_wrapper .register-container .grid-container .register-header {
+  grid-area: header;
+  margin-top: 25px;
+}
+#register_wrapper .register-container .grid-container .register-header .text-header {
+  font-size: 2rem;
+  text-align: center;
+  color: #0B5345;
+}
+#register_wrapper .register-container .grid-container .register-content {
+  grid-area: content;
+}
+#register_wrapper .register-container .grid-container .register-content .register-form .custom {
+  padding: 0 15px;
+}
+#register_wrapper .register-container .grid-container .register-content .register-form .custom legend {
+  font-size: 20px;
+  font-weight: 300;
+  margin-left: 15px;
+}
+#register_wrapper .register-container .grid-container .register-content .register-form .form {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+}
+#register_wrapper .register-container .grid-container .register-content .register-form .form label {
+  margin: 0;
+  padding: 0;
 }
 
 /* Mixins A Breakpoint */

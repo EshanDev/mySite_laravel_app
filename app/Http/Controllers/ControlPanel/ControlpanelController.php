@@ -52,13 +52,14 @@ class ControlpanelController extends Controller
             $store->code = $result;
 
             // Store into database conditions table.
-            //$conditions->save();
+            $store->save();
 
             // Send eMail to user by Email Address.
             //Mail::to($data['email'])->send(new ActivationRegister($data));
 
             // Redirect to Register Authentication page.
-            return redirect()->route('auth.register')->with('success', 'รหัสยืนยันถูกส่งไปยังอีเมล์ของท่านเรียบร้อยแล้ว');
+            return redirect()->route('condition.confirmed.code');
+            //return redirect()->route('auth.register', compact('data'))->with('success', 'รหัสยืนยันถูกส่งไปยังอีเมล์ของท่านเรียบร้อยแล้ว');
         } else {
             return false;
             //dd($request->_token);
@@ -99,5 +100,49 @@ class ControlpanelController extends Controller
             }
         }
         die('false');
+    }
+    public function verify_code(Request $request)
+    {
+        // verity student_code.
+        $matches = DB::table('conditions')->where('code', $request->input('confirmed_code'))->first();
+    }
+
+
+    public function register(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'student_name' => 'required|string',
+            'student_code' => 'required|digits:10|unique:students',
+            'student_branch' => 'required|string',
+            'student_faculty' => 'required|string',
+            'student_mail' => 'required|email|unique:students',
+        ]);
+    }
+
+
+
+    public function confirmed()
+    {
+
+        $code = "d1b02f30-460a-4525-824d-336f52cc0e73";
+        $select = DB::table('conditions')->where('code', $code)->first();
+        $match = $select->code;
+        //dd($match);
+        //return response()->json($registration_code);
+        return view('system.auth.registration_code');
+    }
+
+
+    public function show_register_form()
+    {
+        return view('system.auth.register');
+    }
+
+
+
+    public function match_code(Request $request)
+    {
+        $matches = DB::table('conditions')->where('code', $request->input('confirmed_code'))->first();
+        dd($matches);
     }
 }
